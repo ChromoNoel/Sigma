@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,6 +31,21 @@ namespace PointsOfAuthority
         private void checkbox_Unchecked(object sender, RoutedEventArgs e)
         {
             kapcsolo.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter writer = new StreamWriter("adatok.txt", true);
+
+            if (checkbox.IsChecked ?? true && Convert.ToInt32(szemszam.Text) != 0)
+            {
+                writer.WriteLine(nev.Text + ";" + kezd.Text + ";" + veg.Text + ";" + box.Text + ";" + szemszam.Text);
+            } else
+            {
+                writer.WriteLine(nev.Text + ";" + kezd.Text + ";" + veg.Text + ";" + box.Text + ";0");
+            }
+
+            writer.Close();
         }
     }
 }
