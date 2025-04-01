@@ -17,10 +17,13 @@ namespace PointsOfAuthority
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SkibidiReserve SkibidiReserve { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             kapcsolo.Visibility = Visibility.Collapsed;
+            SkibidiReserve = new SkibidiReserve();
+            this.DataContext = SkibidiReserve;
         }
 
         private void checkbox_Checked(object sender, RoutedEventArgs e)
@@ -35,17 +38,7 @@ namespace PointsOfAuthority
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter writer = new StreamWriter("adatok.txt", true);
-
-            if (checkbox.IsChecked ?? true && Convert.ToInt32(szemszam.Text) != 0)
-            {
-                writer.WriteLine(nev.Text + ";" + kezd.Text + ";" + veg.Text + ";" + box.Text + ";" + szemszam.Text);
-            } else
-            {
-                writer.WriteLine(nev.Text + ";" + kezd.Text + ";" + veg.Text + ";" + box.Text + ";0");
-            }
-
-            writer.Close();
+            SkibidiReserve.Save(checkbox);
         }
     }
 }

@@ -29,17 +29,17 @@
                 <Label Content="Személyes Adatok" HorizontalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Label Content="Név: "/>
-                    <TextBox MinWidth="100" Margin="10 0 10 0" Name="nev"/>
+                    <TextBox MinWidth="100" Margin="10 0 10 0" Name="nev" Text="{Binding Name}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Label Content="Kezd. Dátum: "/>
-                    <TextBox MinWidth="100" Margin="10 0 10 0" Name="kezd"/>
+                    <TextBox MinWidth="100" Margin="10 0 10 0" Name="kezd" Text="{Binding StartDate}"/>
                     <Label Content="Vég. Dátum: "/>
-                    <TextBox MinWidth="100" Margin="10 0 10 0 " Name="veg"/>
+                    <TextBox MinWidth="100" Margin="10 0 10 0 " Name="veg" Text="{Binding EndDate}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <Label Content="Fizetés típusa"/>
-                    <ComboBox x:Name="box" Margin="10 0 10 0">
+                    <ComboBox x:Name="box" Margin="10 0 10 0" Text="{Binding PaymentMethod}">
                         <ComboBoxItem Content="Kp"/>
                         <ComboBoxItem Content="Kártya" IsSelected="True"/>
                     </ComboBox>
@@ -51,7 +51,7 @@
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                     <StackPanel Orientation="Horizontal" x:Name="kapcsolo">
                         <Label Content="Személyek száma"/>
-                        <TextBox MinWidth="100" Margin="10 0 10 0" Name="szemszam"/>
+                        <TextBox MinWidth="100" Margin="10 0 10 0" Name="szemszam" Text="{Binding NumOfOthers}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
